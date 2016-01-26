@@ -1,0 +1,12 @@
+<h2>Create a new Cat!</h2>
+
+<form action="http://localhost:3000/cats" method="post">
+  <input type='text' name="cat[name]">
+  <input type='date' birth_date="cat[birth_date]">
+  <input type="radio" color="cat[color]">
+  <input type="select" value="<option>">
+  <label for="cat_description">Cat's Life Story</label>
+  <textarea name="cat[description]" id="cat_description"></textarea>
+
+  <input type="submit" value="Create cat">
+</form>
