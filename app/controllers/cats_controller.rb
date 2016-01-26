@@ -13,6 +13,15 @@ class CatsController < ApplicationController
     render :new
   end
 
+  def create
+    @cat = Cat.new(cat_params)
+    if @cat.save
+      redirect_to :index
+    else
+      raise "HELL"
+    end
+  end
+
   private
 
   def cat_params
