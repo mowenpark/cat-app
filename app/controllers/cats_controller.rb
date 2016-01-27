@@ -11,6 +11,8 @@ class CatsController < ApplicationController
 
   def new
     @cat = Cat.new
+    # 42 / 0
+    # render text: 'lol'
     render :new
   end
 

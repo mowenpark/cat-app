@@ -25,6 +25,5 @@
   <br>
   <textarea name="cat[description]" id="cat_description" ><%= @cat.description %></textarea>
   <br>
-  <!-- <input type="submit" value="Create cat"> -->
-  <%= button_to "Submit", {action: @cat.persisted? ? 'update' : 'create' } %>
+  <input type="submit" value="<%= @cat.persisted? ? 'update' : 'create' %>">
 </form>

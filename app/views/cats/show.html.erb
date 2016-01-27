@@ -7,5 +7,12 @@
     <td><%= @cat.age %></td>
     <td><%= @cat.description %></td>
   </tr>
+</table>
+
+<table border="1" style="width:100%">
+  <% @cat.cat_rental_requests.each do |request| %>
+    <td><%= request.start_date %></td>
+    <td><%= request.end_date %></td>
+  <% end %>
 
 </table>
