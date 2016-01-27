@@ -1,0 +1,20 @@
+<h2>Rent a Cat!</h2>
+
+<!-- Url helper -->
+<form action="<%=new_cat_rental_request_url%>" method="post">
+  <input type="hidden" name="_method" value=<%=@cat_rental_request.persisted? ? 'PATCH' : 'POST' %>>
+  <select name="cat[color]" id="cat_color" select='calico'>
+    <option value="<option>">Cat</option>
+    <% Cat.all.each do |cat| %>
+      <option value="<%=cat.name %>"><%=cat.name %></option>
+    <% end %>
+  </select>
+  <br>
+  <label for="at_rental_request_startdate">Start Date</label>
+  <input type='date' name="cat_rental_request[start_date]" value='<%= @cat_rental_request.start_date %>'>
+  <br>
+  <label for="at_rental_request_enddate">End Date</label>
+  <input type='date' name="cat_rental_request[end_date]" value='<%= @cat_rental_request.end_date %>'>
+  <br>
+  <%= button_to "Submit", {action: @cat_rental_request.persisted? ? 'update' : 'create' } %>
+</form>

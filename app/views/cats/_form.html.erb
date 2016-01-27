@@ -1,4 +1,5 @@
-<form action="http://localhost:3000/cats/<%=@cat.id%>" method="post">
+
+<form action="<%=@cat.persisted? ? cat_url(@cat) : cats_url%>" method="post">
   <input type="hidden" name="_method" value=<%=@cat.persisted? ? 'PATCH' : 'POST' %>>
 
   <input type='text' name="cat[name]" value='<%= @cat.name %>'>
@@ -15,9 +16,9 @@
   <label for="cat_coat_color">Coat color</label>
   <select name="cat[color]" id="cat_color" select='calico'>
     <option value="<option>">option</option>
-    <option value="calico" <%= @cat.color == 'calico' ? 'selected' : nil %>>Calico</option>
-    <option value="black" <%= @cat.color == 'black' ? 'selected' : nil %>>Black</option>
-    <option value="blue" <%= @cat.color == 'blue' ? 'selected' : nil %>>Blue</option>
+    <% Cat::COLORS.each do |color| %>
+      <option value="<%= color %>" selected='<%= @cat.color == color %>'><%= color %></option>
+    <% end %>
   </select>
   <br>
   <label for="cat_description">Cat's Life Story</label>

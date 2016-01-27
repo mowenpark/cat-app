@@ -10,7 +10,7 @@ class CatsController < ApplicationController
   end
 
   def new
-    @cat = Cat.new(name: nil, color: nil, birth_date: nil, description: nil, sex: nil)
+    @cat = Cat.new
     render :new
   end
 
